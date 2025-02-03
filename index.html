@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Costos de Embarques</title>
+    <!-- Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="loginContainer">
+        <h1>Iniciar Sesión</h1>
+        <form id="loginForm" class="col s12">
+            <div class="input-field col s12">
+                <input type="text" id="username" required>
+                <label for="username">Usuario</label>
+            </div>
+            <div class="input-field col s12">
+                <input type="password" id="password" required>
+                <label for="password">Contraseña</label>
+            </div>
+            <button type="submit" class="btn waves-effect waves-light">Iniciar Sesión</button>
+        </form>
+    </div>
+
+    <div class="container" id="appContainer" style="display: none;">
+        <h1>Calculadora de Costos de Embarques</h1>
+        <form id="costForm" class="col s12">
+            <div class="input-field col s4">
+                <input type="number" id="unitCost" value="15" required>
+                <label for="unitCost">Costo por Unidad (USD)</label>
+            </div>
+            <div class="input-field col s4">
+                <input type="number" id="transportCost" value="700" required>
+                <label for="transportCost">Costo de Transporte (USD)</label>
+            </div>
+            <div class="input-field col s4">
+                <input type="number" id="numUnits" value="30" required>
+                <label for="numUnits">Número de Unidades</label>
+            </div>
+            <button type="submit" class="btn waves-effect waves-light">Agregar Embarque</button>
+        </form>
+
+        <div id="result" class="result"></div>
+
+        <h2>Embarques Registrados</h2>
+        <table class="highlight">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Costo Unidad</th>
+                    <th>Costo Transporte</th>
+                    <th>Número de Unidades</th>
+                    <th>Fecha</th>
+                    <th>Precio Venta Sugerido</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="embarcTableBody"></tbody>
+        </table>
+
+        <h2>Registro de Cambios</h2>
+        <button id="viewLogsButton" class="btn" style="display: none;">Ver Logs</button>
+        <table class="highlight" id="logsTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Fecha y Hora</th>
+                    <th>Usuario</th>
+                    <th>Cambio</th>
+                </tr>
+            </thead>
+            <tbody id="logsTableBody"></tbody>
+        </table>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <h4>Información</h4>
+            <p>Aquí puedes agregar información adicional sobre el embarque o cualquier otro detalle.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-close btn waves-effect waves-light">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
